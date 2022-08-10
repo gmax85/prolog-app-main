@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import styled from "styled-components";
+import { color, space } from "@styles/theme";
 
 type MenuItemProps = {
   text: string;
@@ -11,13 +12,13 @@ type MenuItemProps = {
 };
 
 const ListItem = styled.li<{ isActive: boolean }>`
-  height: 51px;
+  height: ${space(12)};
   display: flex;
   align-items: center;
-  margin-top: ${({ theme }) => theme.space[1]};
-  padding: 0 ${({ theme }) => theme.space[3]};
-  background: ${({ theme, isActive }) =>
-    isActive ? theme.color.gray[700] : "transparent"};
+  margin-top: ${space(1)};
+  padding: ${space(0, 3)};
+  background: ${(props) =>
+    props.isActive ? color("gray", 700)(props) : "transparent"};
   border-radius: 6px;
 
   &:first-child {
@@ -28,12 +29,13 @@ const ListItem = styled.li<{ isActive: boolean }>`
 const Anchor = styled.a`
   display: flex;
   align-items: center;
-  color: ${({ theme }) => theme.color.gray[100]};
+  color: ${color("gray", 100)};
   text-decoration: none;
 `;
 
 const Icon = styled.img`
-  margin-right: ${({ theme }) => theme.space[3]};
+  width: ${space(6)};
+  margin-right: ${space(3)};
 `;
 
 export function MenuItemLink({

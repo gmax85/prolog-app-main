@@ -14,7 +14,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "types": ["cypress", "@testing-library/cypress"],
+    "types": ["jest"],
     "baseUrl": ".",
     "paths": {
       "@components/*": ["components/*"],
@@ -31,5 +31,5 @@
     "cypress/integration/navigation.spec.ts",
     "jest.config.js"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "**/*.test.ts", "**/*.test.tsx"]
 }

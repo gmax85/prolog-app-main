@@ -14,6 +14,12 @@ interface Color {
   900: string
 
 }
+
+interface Font {
+
+  md: string
+
+}
 declare module 'styled-components' {
   export interface DefaultTheme {
     color: {
@@ -41,6 +47,10 @@ declare module 'styled-components' {
     zIndex: {
       header: number;
     },
+    font: {
+      xs: Font;
+      sm: Font;
+    }
 
 
   }
