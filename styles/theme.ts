@@ -1,4 +1,4 @@
-import { css, DefaultTheme } from "styled-components";
+import { DefaultTheme } from "styled-components";
 
 
 
@@ -133,6 +133,7 @@ export const theme = {
           font-weight: 500;
         `,
       }
+
     },
     display: {
       sm: {
