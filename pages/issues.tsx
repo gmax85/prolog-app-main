@@ -18,7 +18,14 @@ const Issues: NextPage = () => {
       </main>
     </div>
   );
-  return <PageContainer>Issues Placeholder</PageContainer>;
+  return (
+    <PageContainer
+      title="Issues"
+      info="Overview of errors, warnings, and events logged from your projects."
+    >
+      Issues Placeholder
+    </PageContainer>
+  );
 };
 
 export default Issues;

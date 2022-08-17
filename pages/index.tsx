@@ -55,7 +55,14 @@ const Home: NextPage = () => {
       </main>
     </div>
   );
-  return <PageContainer>Projects Placeholder</PageContainer>;
+  return (
+    <PageContainer
+      title="Projects"
+      info="Overview of your projects sorted by alert level."
+    >
+      Projects Placeholder
+    </PageContainer>
+  );
 };
 
 export default Home;
