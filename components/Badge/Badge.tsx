@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import { space, font, color } from "@styles/theme";
+import { color, textFont, space } from "@styles/theme";
 
 export enum BadgeSize {
   sm = "sm",
@@ -29,27 +29,25 @@ const Container = styled.div<{ size: BadgeSize; color: BadgeColor }>`
   background: #f9f5ff;
   border-radius: ${space(4)};
 
-  ${font("sm", "md")};
-
   ${(props) => {
     switch (props.size) {
       case BadgeSize.sm:
         return css`
           padding: ${space(0, 2)};
           height: 1.375rem;
-          ${font("xs", "md")};
+          ${textFont("xs", "medium")};
         `;
       case BadgeSize.md:
         return css`
           padding: 0 0.625rem};
           height: 1.5rem;
-          ${font("sm", "md")};
+          ${textFont("sm", "medium")}
         `;
       case BadgeSize.lg:
         return css`
           padding: 0 ${space(0, 3)};
           height: 1.75rem;
-          ${font("sm", "md")};
+          ${textFont("sm", "medium")}
         `;
     }
   }}

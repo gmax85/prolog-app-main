@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 // import styled from "styled-components";
 import { SidebarNavigation } from "@components/SidebarNavigation";
+import { PageContainer } from "@components/PageContainer";
 
 // type ContainerProps = {
 //   theme: string;
@@ -53,6 +54,14 @@ const Home: NextPage = () => {
         <SidebarNavigation />
       </main>
     </div>
+  );
+  return (
+    <PageContainer
+      title="Projects"
+      info="Overview of your projects sorted by alert level."
+    >
+      Projects Placeholder
+    </PageContainer>
   );
 };
 

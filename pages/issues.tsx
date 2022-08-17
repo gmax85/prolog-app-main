@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 // import styled from "styled-components";
 import { SidebarNavigation } from "@components/SidebarNavigation";
+import { PageContainer } from "@components/PageContainer";
 
 const Issues: NextPage = () => {
   return (
@@ -16,6 +17,14 @@ const Issues: NextPage = () => {
         <SidebarNavigation />
       </main>
     </div>
+  );
+  return (
+    <PageContainer
+      title="Issues"
+      info="Overview of errors, warnings, and events logged from your projects."
+    >
+      Issues Placeholder
+    </PageContainer>
   );
 };
 
