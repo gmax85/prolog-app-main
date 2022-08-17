@@ -18,8 +18,8 @@ interface Color {
 
 interface Font {
 
-  md: string
-
+  regular: string;
+  medium: string;
 }
 declare module 'styled-components' {
   export interface DefaultTheme {
@@ -53,8 +53,14 @@ declare module 'styled-components' {
       header: number;
     },
     font: {
-      xs: Font;
-      sm: Font;
+      text: {
+        xs: Font;
+        sm: Font;
+        md: Font;
+      };
+      display: {
+        sm: Font;
+      };
     }
 
 
