@@ -86,7 +86,9 @@ export const theme = {
     20: "5rem",
     24: "6rem",
   },
-
+  size: {
+    headerHeight: "4rem",
+  },
   breakpoint: {
     desktop: "64em"
   },

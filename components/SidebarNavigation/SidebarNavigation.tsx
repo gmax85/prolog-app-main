@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 import { useContext, useState } from "react";
 import { NavigationContext } from "@contexts/Navigation";
 import { Button } from "@components/Button";
-import { breakpoint, color, space, theme, zIndex } from "@styles/theme";
+import { breakpoint, color, space, zIndex } from "@styles/theme";
 
 const menuItems = [
   { text: "Projects", iconSrc: "/icons/projects.svg", href: Routes.projects },
@@ -18,8 +18,6 @@ const menuItems = [
   { text: "Settings", iconSrc: "/icons/settings.svg", href: Routes.settings },
 ];
 
-const HEADER_HEIGHT = space(16)({ theme });
-
 const Container = styled.div<{ isCollapsed: boolean }>`
   width: 100%;
   height: 100vh;
@@ -28,6 +26,7 @@ const Container = styled.div<{ isCollapsed: boolean }>`
 
   @media (min-width: ${breakpoint("desktop")}) {
     width: 17.5rem;
+    height: 100vh;
     ${(props) =>
       props.isCollapsed &&
       css`
@@ -41,7 +40,7 @@ const Container = styled.div<{ isCollapsed: boolean }>`
 
 const Header = styled.header`
   width: calc(100% - 2 * ${space(4)});
-  height: ${HEADER_HEIGHT};
+  height: ${({ theme }) => theme.size.headerHeight};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -59,13 +58,15 @@ const Header = styled.header`
 
 const Nav = styled.nav<{ isMobileMenuOpen: boolean }>`
   width: 19.5rem;
+  position: absolute;
+  top: ${({ theme }) => theme.size.headerHeight};
+  bottom: 0;
 
   padding: ${space(0, 2, 8)};
   flex: 1;
   display: flex;
   flex-direction: column;
   background: ${color("gray", 900)};
-  position: relative;
   z-index: ${zIndex("header")};
 
   transform: ${({ isMobileMenuOpen }) =>
@@ -73,6 +74,8 @@ const Nav = styled.nav<{ isMobileMenuOpen: boolean }>`
   transition: transform 300ms;
 
   @media (min-width: ${breakpoint("desktop")}) {
+    position: relative;
+    top: 0;
     transform: none;
     width: calc(100% - ${space(8)});
     padding: ${space(0, 4, 8)};

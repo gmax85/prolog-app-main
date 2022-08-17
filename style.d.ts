@@ -45,7 +45,9 @@ declare module 'styled-components' {
       20: string
       24: string
     }
-
+    size: {
+      headerHeight: string;
+    };
     breakpoint: {
       desktop: string;
     },
