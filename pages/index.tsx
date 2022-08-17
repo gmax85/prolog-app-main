@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 // import styled from "styled-components";
 import { SidebarNavigation } from "@components/SidebarNavigation";
+import { PageContainer } from "@components/PageContainer";
 
 // type ContainerProps = {
 //   theme: string;
@@ -54,6 +55,7 @@ const Home: NextPage = () => {
       </main>
     </div>
   );
+  return <PageContainer>Projects Placeholder</PageContainer>;
 };
 
 export default Home;
