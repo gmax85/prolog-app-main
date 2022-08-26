@@ -20,6 +20,7 @@ interface Font {
 
   regular: string;
   medium: string;
+  semibold: string;
 }
 declare module 'styled-components' {
   export interface DefaultTheme {
@@ -62,6 +63,7 @@ declare module 'styled-components' {
       };
       display: {
         sm: Font;
+        md: Font;
       };
     }
 
