@@ -1,28 +1,11 @@
-import capitalize from "lodash/capitalize";
 import { Badge, BadgeColor } from "@components/Badge/Badge";
 import styled from "styled-components";
 import { color, textFont, space, displayFont } from "@styles/theme";
 import Link from "next/link";
-
-export enum ProjectLanguage {
-  react = "react",
-  node = "node",
-  python = "python",
-}
-
-export enum ProjectStatus {
-  stable = "stable",
-  warning = "warning",
-  critical = "critical",
-}
+import { Project, ProjectLanguage, ProjectStatus } from "@api/project";
 
 type ProjectCardProps = {
-  id: string;
-  name: string;
-  language: ProjectLanguage;
-  numIssues: number;
-  numEvents24h: number;
-  status: ProjectStatus;
+  project: Project;
 };
 
 const languageNames = {
@@ -32,9 +15,15 @@ const languageNames = {
 };
 
 const statusColors = {
-  [ProjectStatus.stable]: BadgeColor.success,
+  [ProjectStatus.info]: BadgeColor.success,
   [ProjectStatus.warning]: BadgeColor.warning,
-  [ProjectStatus.critical]: BadgeColor.error,
+  [ProjectStatus.error]: BadgeColor.error,
+};
+
+const statusText = {
+  [ProjectStatus.info]: "Stable",
+  [ProjectStatus.warning]: "Warning",
+  [ProjectStatus.error]: "Critical",
 };
 
 const Container = styled.div`
@@ -111,13 +100,8 @@ const ViewIssuesAnchor = styled.a`
   ${textFont("sm", "medium")};
 `;
 
-export function ProjectCard({
-  name,
-  language,
-  numIssues,
-  numEvents24h,
-  status,
-}: ProjectCardProps) {
+export function ProjectCard({ project }: ProjectCardProps) {
+  const { name, language, numIssues, numEvents24h, status } = project;
   return (
     <Container>
       <TopContainer>
@@ -139,7 +123,7 @@ export function ProjectCard({
             <IssuesNumber>{numEvents24h}</IssuesNumber>
           </Issues>
           <Status>
-            <Badge color={statusColors[status]}>{capitalize(status)}</Badge>
+            <Badge color={statusColors[status]}>{statusText[status]}</Badge>
           </Status>
         </InfoContainer>
       </TopContainer>

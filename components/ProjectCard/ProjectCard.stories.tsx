@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { ProjectLanguage, ProjectCard, ProjectStatus } from "./ProjectCard";
 
 export default {
-  title: "UI/ProjectCard",
+  title: "Project/ProjectCard",
   component: ProjectCard,
   parameters: {
     // More on Story layout: https://storybook.js.org/docs/react/configure/story-layout
