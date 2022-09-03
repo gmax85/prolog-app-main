@@ -1,9 +1,18 @@
 import type { NextPage } from "next";
 import { PageContainer } from "@components/PageContainer";
 import { ProjectCard } from "@components/ProjectCard";
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import { useProjects } from "@api/project/useProjects";
+import styled from "styled-components";
+import { space, breakpoint } from "@styles/theme";
+
+const ProjectList = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: ${space(6)};
+  @media (min-width: ${breakpoint("desktop")}) {
+    grid-template-columns: repeat(auto-fit, 400px);
+  }
+`;
 
 const Home: NextPage = () => {
   const { data, isLoading, isError, error } = useProjects();
@@ -22,9 +31,11 @@ const Home: NextPage = () => {
       title="Projects"
       info="Overview of your projects sorted by alert level."
     >
-      {data?.map((project) => (
-        <ProjectCard key={project.id} project={project} />
-      ))}
+      <ProjectList>
+        {data?.map((project) => (
+          <ProjectCard key={project.id} project={project} />
+        ))}
+      </ProjectList>
     </PageContainer>
   );
 };
