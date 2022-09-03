@@ -13,18 +13,21 @@ export default {
 } as ComponentMeta<typeof ProjectCard>;
 
 const Template: ComponentStory<typeof ProjectCard> = (props) => (
-  <div style={{ padding: 50 }}>
+  <div style={{ width: 500, padding: 50 }}>
     <ProjectCard {...props} />
   </div>
 );
 
 export const Default = Template.bind({});
 Default.args = {
-  name: "Frontend - web",
-  language: ProjectLanguage.react,
-  numIssues: 420,
-  numEvents24h: 721,
-  status: ProjectStatus.critical,
+  project: {
+    id: "xzy",
+    name: "Frontend - Web",
+    language: ProjectLanguage.react,
+    numIssues: 420,
+    numEvents24h: 721,
+    status: ProjectStatus.error,
+  },
 };
 Default.parameters = {
   viewMode: "docs",
