@@ -1,9 +1,10 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { ProjectLanguage, ProjectCard, ProjectStatus } from "./ProjectCard";
+import { ProjectCard } from "./ProjectCard";
+import { ProjectLanguage, ProjectStatus } from "@api/project";
 
 export default {
-  title: "UI/ProjectCard",
+  title: "Project/ProjectCard",
   component: ProjectCard,
   parameters: {
     // More on Story layout: https://storybook.js.org/docs/react/configure/story-layout
@@ -12,18 +13,21 @@ export default {
 } as ComponentMeta<typeof ProjectCard>;
 
 const Template: ComponentStory<typeof ProjectCard> = (props) => (
-  <div style={{ padding: 50 }}>
+  <div style={{ width: 500, padding: 50 }}>
     <ProjectCard {...props} />
   </div>
 );
 
 export const Default = Template.bind({});
 Default.args = {
-  name: "Frontend - web",
-  language: ProjectLanguage.react,
-  numIssues: 420,
-  numEvents24h: 721,
-  status: ProjectStatus.critical,
+  project: {
+    id: "xzy",
+    name: "Frontend - Web",
+    language: ProjectLanguage.react,
+    numIssues: 420,
+    numEvents24h: 721,
+    status: ProjectStatus.critical,
+  },
 };
 Default.parameters = {
   viewMode: "docs",

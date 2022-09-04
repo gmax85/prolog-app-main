@@ -60,7 +60,6 @@ export function PageContainer({ children, title, info }: PageContainerProps) {
       </Head>
 
       <SidebarNavigation />
-      <main>{children}</main>
       <Main>
         <ContentContainer>
           <Title>{title}</Title>
