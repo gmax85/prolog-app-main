@@ -1,31 +1,16 @@
 import type { NextPage } from "next";
-import Head from "next/head";
-// import styled from "styled-components";
-import { SidebarNavigation } from "@components/SidebarNavigation";
 import { PageContainer } from "@components/PageContainer";
+import { IssueList } from "@components/IssuesList/IssueList";
 
-const Issues: NextPage = () => {
-  return (
-    <div>
-      <Head>
-        <title>ProLog</title>
-        <meta name="description" content="Error monitoring" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main>
-        <SidebarNavigation />
-      </main>
-    </div>
-  );
+const IssuesPage: NextPage = () => {
   return (
     <PageContainer
       title="Issues"
       info="Overview of errors, warnings, and events logged from your projects."
     >
-      Issues Placeholder
+      <IssueList />
     </PageContainer>
   );
 };
 
-export default Issues;
+export default IssuesPage;
