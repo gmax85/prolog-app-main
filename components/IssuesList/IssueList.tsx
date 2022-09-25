@@ -21,7 +21,8 @@ const TableHead = styled.thead`
 const HeaderCell = styled.th`
   text-align: left;
   padding: ${space(3, 6)};
-  color: ${color("gray", 500)} ${textFont("xs", "medium")};
+  color: ${color("gray", 500)};
+  ${textFont("xs", "medium")};
 `;
 
 export function IssueList() {
@@ -34,12 +35,12 @@ export function IssueList() {
 
   if (projects.isError) {
     console.error(projects.error);
-    return <div>Error loading projects {projects.error.message}</div>;
+    return <div>Error loading projects: {projects.error.message}</div>;
   }
 
   if (issues.isError) {
     console.error(issues.error);
-    return <div>Error loading projects {issues.error.message}</div>;
+    return <div>Error loading issues: {issues.error.message}</div>;
   }
 
   const projectIdToLanguage = (projects.data || []).reduce(
