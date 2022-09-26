@@ -30,6 +30,7 @@ const ContentContainer = styled.div`
   );
   padding: ${space(8, 3)};
   background: white;
+  margin-top: ${({ theme }) => theme.size.headerHeight};
   @media (min-width: ${breakpoint("desktop")}) {
     min-height: calc(100vh - ${space(3)} - 2 * ${space(8)});
     margin-top: ${space(3)};

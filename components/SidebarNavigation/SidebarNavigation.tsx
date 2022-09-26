@@ -18,24 +18,34 @@ const menuItems = [
   { text: "Settings", iconSrc: "/icons/settings.svg", href: Routes.settings },
 ];
 
-const Container = styled.div<{ isCollapsed: boolean }>`
+const containerStyles = css`
   width: 100%;
-  height: 100vh;
   display: flex;
   flex-direction: column;
-
   @media (min-width: ${breakpoint("desktop")}) {
     width: 17.5rem;
     height: 100vh;
+  }
+`;
+
+const Container = styled.div<{ isCollapsed: boolean }>`
+  ${containerStyles}
+  @media (min-width: ${breakpoint("desktop")}) {
     ${(props) =>
       props.isCollapsed &&
       css`
-        width: 5.1875rem;
+        &,
+        ${FixedContainer} {
+          width: 5.1875rem;
+        }
         ${Logo} {
           width: 1.4375rem;
-        }
-      `};
-  }
+@@ -37,6 +46,11 @@ const Container = styled.div<{ isCollapsed: boolean }>`}
+`;
+
+const FixedContainer = styled.div`
+  ${containerStyles}
+  position: fixed;
 `;
 
 const Header = styled.header`
@@ -58,11 +68,11 @@ const Header = styled.header`
 
 const Nav = styled.nav<{ isMobileMenuOpen: boolean }>`
   width: 19.5rem;
-  position: absolute;
+  position: fixed;
   top: ${({ theme }) => theme.size.headerHeight};
   bottom: 0;
 
-  padding: ${space(0, 2, 8)};
+  padding: ${space(1, 2, 8)};
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -148,50 +158,54 @@ export function SidebarNavigation() {
 
   return (
     <Container isCollapsed={isSidebarCollapsed}>
-      <Header>
-        <Logo
-          src={
-            isSidebarCollapsed
-              ? "/icons/logo-small.svg"
-              : "/icons/logo-large.svg"
-          }
-          alt="logo"
-        />
-        <MenuButton onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}>
-          <MenuIcon
-            src={isMobileMenuOpen ? "icons/close.svg" : "icons/menu.svg"}
-            alt={isMobileMenuOpen ? "close menu" : "open menu"}
+      <FixedContainer>
+        <Header>
+          <Logo
+            src={
+              isSidebarCollapsed
+                ? "/icons/logo-small.svg"
+                : "/icons/logo-large.svg"
+            }
+            alt="logo"
           />
-        </MenuButton>
-      </Header>
-      <MenuOverlay isMobileMenuOpen={isMobileMenuOpen} />
-      <Nav isMobileMenuOpen={isMobileMenuOpen}>
-        <LinkList>
-          {menuItems.map((menuItem, index) => (
-            <MenuItemLink
-              key={index}
-              {...menuItem}
-              isCollapsed={isSidebarCollapsed}
-              isActive={router.pathname === menuItem.href}
-            />
-          ))}
-        </LinkList>
 
-        <List>
-          <MenuItemButton
-            text="Support"
-            iconSrc="/icons/support.svg"
-            isCollapsed={isSidebarCollapsed}
-            onClick={() => alert("Support")}
-          />
-          <CollapseMenuItem
-            text="Collapse"
-            iconSrc="/icons/arrow-left.svg"
-            isCollapsed={isSidebarCollapsed}
-            onClick={() => toggleSidebar()}
-          />
-        </List>
-      </Nav>
+          <MenuButton onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}>
+            <MenuIcon
+              src={isMobileMenuOpen ? "/icons/close.svg" : "/icons/menu.svg"}
+              alt={isMobileMenuOpen ? "close menu" : "open menu"}
+            />
+          </MenuButton>
+        </Header>
+        <MenuOverlay isMobileMenuOpen={isMobileMenuOpen} />
+        <Nav isMobileMenuOpen={isMobileMenuOpen}>
+          <LinkList>
+            {menuItems.map((menuItem, index) => (
+              <MenuItemLink
+                key={index}
+                {...menuItem}
+                isCollapsed={isSidebarCollapsed}
+                isActive={router.pathname === menuItem.href}
+              />
+            ))}
+          </LinkList>
+
+          <List>
+            <MenuItemButton
+              text="Support"
+              iconSrc="/icons/support.svg"
+              isCollapsed={isSidebarCollapsed}
+              onClick={() => alert("Support")}
+            />
+
+            <CollapseMenuItem
+              text="Collapse"
+              iconSrc="/icons/arrow-left.svg"
+              isCollapsed={isSidebarCollapsed}
+              onClick={() => toggleSidebar()}
+            />
+          </List>
+        </Nav>
+      </FixedContainer>
     </Container>
   );
 }
