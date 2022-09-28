@@ -28,6 +28,35 @@ const HeaderCell = styled.th`
   color: ${color("gray", 500)};
   ${textFont("xs", "medium")};
 `;
+const PaginationContainer = styled.div`
+  display: flex;
+  align-items: center;
+  padding: ${space(4, 6)};
+  justify-content: space-between;
+  border-top: 1px solid ${color("gray", 200)};
+`;
+
+const PaginationButton = styled.button`
+  height: 38px;
+  padding: ${space(0, 4)};
+  background: white;
+  border: 1px solid ${color("gray", 300)};
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+  border-radius: 6 px;
+
+  &:not(:first-of-type) {
+    margin-left: ${space(3)};
+  }
+`;
+
+const PageInfo = styled.div`
+  color: ${color("gray", 700)};
+  ${textFont("sm", "regular")};
+`;
+
+const PageNumber = styled.span`
+  ${textFont("sm", "medium")};
+`;
 
 export function IssueList() {
   const [page, setPage] = useState(1);
@@ -79,26 +108,26 @@ export function IssueList() {
           ))}
         </tbody>
       </Table>
-      <div>
+      <PaginationContainer>
         <div>
-          <button
-            onClick={() => setPage((page) => page + 1)}
-            disabled={page === meta?.totalPages}
-          >
-            Previous
-          </button>
-          <button
+          <PaginationButton
             onClick={() => setPage((page) => page - 1)}
             disabled={page === 1}
           >
+            Previous
+          </PaginationButton>
+          <PaginationButton
+            onClick={() => setPage((page) => page + 1)}
+            disabled={page === meta?.totalPages}
+          >
             Next
-          </button>
+          </PaginationButton>
         </div>
-
-        <div>
-          Page {meta?.currentPge} of {meta?.totalPages}
-        </div>
-      </div>
+        <PageInfo>
+          Page <PageNumber>{meta?.currentPage}</PageNumber> of
+          <PageNumber>{meta?.totalPages}</PageNumber>
+        </PageInfo>
+      </PaginationContainer>
     </Container>
   );
 }
