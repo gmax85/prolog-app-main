@@ -3,7 +3,7 @@ import { ProjectLanguage, useProjects } from "@api/project";
 import styled from "styled-components";
 import { IssueRow } from "./IssuesRow";
 import { color, space, textFont } from "@styles/theme";
-import { useState } from "react";
+import { useRouter } from "next/router";
 
 const Container = styled.div`
   background: white;
@@ -59,7 +59,13 @@ const PageNumber = styled.span`
 `;
 
 export function IssueList() {
-  const [page, setPage] = useState(1);
+  const router = useRouter();
+  const page = Number(router.query.page || 1);
+  const navigateToPage = (newPage: number) =>
+    router.push({
+      pathname: router.pathname,
+      query: { page: newPage },
+    });
   const projects = useProjects();
   const issuesPage = useIssues(page);
 
@@ -111,13 +117,13 @@ export function IssueList() {
       <PaginationContainer>
         <div>
           <PaginationButton
-            onClick={() => setPage((page) => page - 1)}
+            onClick={() => navigateToPage(page - 1)}
             disabled={page === 1}
           >
             Previous
           </PaginationButton>
           <PaginationButton
-            onClick={() => setPage((page) => page + 1)}
+            onClick={() => navigateToPage(page + 1)}
             disabled={page === meta?.totalPages}
           >
             Next
