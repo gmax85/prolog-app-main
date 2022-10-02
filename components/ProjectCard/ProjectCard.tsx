@@ -4,6 +4,7 @@ import { color, textFont, space, displayFont } from "@styles/theme";
 import Link from "next/link";
 import { Project, ProjectLanguage, ProjectStatus } from "@api/project";
 import capitalize from "lodash/capitalize";
+import { Routes } from "@config/routes";
 
 type ProjectCardProps = {
   project: Project;
@@ -123,7 +124,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </InfoContainer>
       </TopContainer>
       <BottomContainer>
-        <Link href="/issues" passHref>
+        <Link href={Routes.issues} passHref>
           <ViewIssuesAnchor>View issues</ViewIssuesAnchor>
         </Link>
       </BottomContainer>
