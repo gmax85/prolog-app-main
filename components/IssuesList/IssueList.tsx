@@ -1,9 +1,9 @@
+import { useRouter } from "next/router";
+import styled from "styled-components";
 import { useIssues } from "@api/issue";
 import { ProjectLanguage, useProjects } from "@api/project";
-import styled from "styled-components";
-import { IssueRow } from "./IssuesRow";
 import { color, space, textFont } from "@styles/theme";
-import { useRouter } from "next/router";
+import { IssueRow } from "./IssuesRow";
 
 const Container = styled.div`
   background: white;
@@ -14,25 +14,28 @@ const Container = styled.div`
   border-radius: ${space(2)};
   overflow: hidden;
 `;
+
 const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
 `;
+
 const HeaderRow = styled.tr`
   border-bottom: 1px solid ${color("gray", 200)};
 `;
 
 const HeaderCell = styled.th`
-  text-align: left;
   padding: ${space(3, 6)};
+  text-align: left;
   color: ${color("gray", 500)};
   ${textFont("xs", "medium")};
 `;
+
 const PaginationContainer = styled.div`
   display: flex;
   align-items: center;
-  padding: ${space(4, 6)};
   justify-content: space-between;
+  padding: ${space(4, 6)};
   border-top: 1px solid ${color("gray", 200)};
 `;
 
@@ -42,8 +45,7 @@ const PaginationButton = styled.button`
   background: white;
   border: 1px solid ${color("gray", 300)};
   box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
-  border-radius: 6 px;
-
+  border-radius: 6px;
   &:not(:first-of-type) {
     margin-left: ${space(3)};
   }
@@ -51,11 +53,11 @@ const PaginationButton = styled.button`
 
 const PageInfo = styled.div`
   color: ${color("gray", 700)};
-  ${textFont("sm", "regular")};
+  ${textFont("sm", "regular")}
 `;
 
 const PageNumber = styled.span`
-  ${textFont("sm", "medium")};
+  ${textFont("sm", "medium")}
 `;
 
 export function IssueList() {
@@ -66,8 +68,9 @@ export function IssueList() {
       pathname: router.pathname,
       query: { page: newPage },
     });
-  const projects = useProjects();
+
   const issuesPage = useIssues(page);
+  const projects = useProjects();
 
   if (projects.isLoading || issuesPage.isLoading) {
     return <div>Loading</div>;
@@ -90,7 +93,6 @@ export function IssueList() {
     }),
     {} as Record<string, ProjectLanguage>
   );
-
   const { items, meta } = issuesPage.data || {};
 
   return (
@@ -130,7 +132,7 @@ export function IssueList() {
           </PaginationButton>
         </div>
         <PageInfo>
-          Page <PageNumber>{meta?.currentPage}</PageNumber> of
+          Page <PageNumber>{meta?.currentPage}</PageNumber> of{" "}
           <PageNumber>{meta?.totalPages}</PageNumber>
         </PageInfo>
       </PaginationContainer>
