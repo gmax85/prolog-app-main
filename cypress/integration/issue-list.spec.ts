@@ -1,6 +1,6 @@
-import mockIssues1 from "../fixtures/issue-page-1.json";
-import mockIssues2 from "../fixtures/issue-page-2.json";
-import mockIssues3 from "../fixtures/issue-page-3.json";
+import mockIssues1 from "../fixtures/issues-page-1.json";
+import mockIssues2 from "../fixtures/issues-page-2.json";
+import mockIssues3 from "../fixtures/issues-page-3.json";
 
 describe("Issue List", () => {
   beforeEach(() => {
@@ -19,7 +19,7 @@ describe("Issue List", () => {
     });
 
     // open issues page
-    cy.visit(`http://localhost:3000/dashboard/issues`);
+    cy.visit(`http://localhost:3000/issues`);
 
     // wait for request to resolve
     cy.wait("@getProjects");
