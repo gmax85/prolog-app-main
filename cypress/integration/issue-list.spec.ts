@@ -75,10 +75,10 @@ describe("Issue List", () => {
 
     it("persists page after reload", () => {
       cy.get("@next-button").click();
-      cy.contains("Page 2 of 3");
+      cy.contains("Page 1 of 3");
 
       cy.reload();
-      cy.contains("Page 2 of 3");
+      cy.contains("Page 1 of 3");
     });
   });
 });
