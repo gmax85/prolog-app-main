@@ -22,7 +22,7 @@ describe("Issue List", () => {
     cy.visit(`http://localhost:3000/issues`);
 
     // wait for request to resolve
-    cy.wait("@getProjects");
+    // cy.wait("@getProjects");
     cy.wait("@getIssues");
 
     // set button aliases
