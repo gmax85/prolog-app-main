@@ -1,5 +1,5 @@
 type PageMeta = {
-  currentPge: number;
+  currentPage: number;
   limit: number;
   totalItems: number;
   totalPages: number;
