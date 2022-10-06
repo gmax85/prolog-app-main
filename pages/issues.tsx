@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import { PageContainer } from "@components/PageContainer";
-import { IssueList } from "@components/IssuesList/IssueList";
+import { IssueList } from "features/issues/components/IssuesList/IssueList";
 
 const IssuesPage: NextPage = () => {
   return (
