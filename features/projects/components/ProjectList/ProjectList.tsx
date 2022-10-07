@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { ProjectCard } from "@components/ProjectCard";
-import { useProjects } from "@api/project/useProjects";
+import { ProjectCard } from "@features/projects/components/ProjectCard";
+import { useProjects } from "@features/projects/api/useProjects";
 import { breakpoint, space } from "@styles/theme";
 
 const List = styled.ul`

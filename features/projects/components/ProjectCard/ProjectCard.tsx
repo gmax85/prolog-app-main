@@ -2,7 +2,11 @@ import { Badge, BadgeColor } from "@components/Badge/Badge";
 import styled from "styled-components";
 import { color, textFont, space, displayFont } from "@styles/theme";
 import Link from "next/link";
-import { Project, ProjectLanguage, ProjectStatus } from "@api/project";
+import {
+  Project,
+  ProjectLanguage,
+  ProjectStatus,
+} from "../../types/project.types";
 import capitalize from "lodash/capitalize";
 import { Routes } from "@config/routes";
 
