@@ -6,8 +6,8 @@ import { MenuItemButton } from "./MenuItemBottom";
 import { useRouter } from "next/router";
 
 import { useContext, useState } from "react";
-import { NavigationContext } from "@contexts/Navigation";
-import { Button } from "@components/Button";
+import { NavigationContext } from "@features/ui/SidebarNavigation/NavigationContext";
+import { Button } from "@features/ui/Button";
 import { breakpoint, color, space, zIndex } from "@styles/theme";
 
 const menuItems = [
