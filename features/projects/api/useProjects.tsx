@@ -1,6 +1,6 @@
 import { useQuery } from "react-query";
 import axios from "axios";
-import { Project } from "./project.types";
+import { Project } from "../types/project.types";
 
 async function getProject() {
   const { data } = await axios.get("http://prolog-api.profy.dev/project");

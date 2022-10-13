@@ -11,3 +11,6 @@ export type Page<T> = {
   items: Array<T>;
   meta: PageMeta;
 }
+
+
+// export type { Page } from "./page.types"

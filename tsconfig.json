@@ -17,20 +17,12 @@
     "types": ["jest"],
     "baseUrl": ".",
     "paths": {
-      "@api/*": ["api/*"],
-      "@components/*": ["components/*"],
-      "@contexts/*": ["contexts/*"],
       "@styles/*": ["styles/*"],
-      "@config/*": ["config/*"]
+      "@config/*": ["config/*"],
+      "@features/*": ["features/*"],
+      "@typings/*": ["typings/*"]
     }
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "styles/theme.ts",
-    "cypress/integration/navigation.spec.ts",
-    "jest.config.js"
-  ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", "**/*.test.ts", "**/*.test.tsx"]
 }

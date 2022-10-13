@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useQuery, useQueryClient } from "react-query";
 import axios from "axios";
-import type { Page } from "@api/page";
-import type { Issue } from "./issue.types";
+import type { Page } from "../../../typings/page.types";
+import type { Issue } from "@features/issues/types/issue.types";
 
 async function getIssues(page: number) {
   const { data } = await axios.get(
@@ -10,15 +10,12 @@ async function getIssues(page: number) {
   );
   return data;
 }
-
 export function useIssues(page: number) {
   const query = useQuery<Page<Issue>, Error>(
     ["issues", page],
     () => getIssues(page),
-
     { keepPreviousData: true, staleTime: 60000 }
   );
-
   // Prefetch the next page!
   const queryClient = useQueryClient();
   useEffect(() => {
