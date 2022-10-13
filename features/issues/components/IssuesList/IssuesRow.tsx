@@ -2,9 +2,9 @@ import styled from "styled-components";
 import capitalize from "lodash/capitalize";
 import { color, space, textFont } from "@styles/theme";
 import { Badge, BadgeColor, BadgeSize } from "@features/ui/Badge";
-import { IssueLevel } from "@features/issues";
+import { IssueLevel } from "../../types/issue.types";
 import { ProjectLanguage } from "@features/projects";
-import type { Issue } from "@features/issues";
+import type { Issue } from "../../types/issue.types";
 
 type IssueRowProps = {
   projectLanguage: ProjectLanguage;
