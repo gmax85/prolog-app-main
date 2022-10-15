@@ -49,7 +49,8 @@ const FixedContainer = styled.div`
 `;
 
 const Header = styled.header`
-  width: calc(100% - 2 * ${space(4)});
+  width: 100%;
+  box-sizing: border-box;
   height: ${({ theme }) => theme.size.headerHeight};
   display: flex;
   justify-content: space-between;
@@ -87,7 +88,8 @@ const Nav = styled.nav<{ isMobileMenuOpen: boolean }>`
     position: relative;
     top: 0;
     transform: none;
-    width: calc(100% - ${space(8)});
+    width: 100%;
+    box-sizing: border-box;
     padding: ${space(0, 4, 8)};
   }
 `;
