@@ -1,4 +1,4 @@
-import { Badge, BadgeColor } from "@features/ui/Badge/Badge";
+import { Badge, BadgeColor } from "@features/ui/badge/badge";
 import styled from "styled-components";
 import { color, textFont, space, displayFont } from "@styles/theme";
 import Link from "next/link";
