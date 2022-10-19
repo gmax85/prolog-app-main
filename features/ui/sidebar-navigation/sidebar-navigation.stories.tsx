@@ -1,7 +1,7 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Routes } from "@config/routes";
-import { SidebarNavigation } from "./SidebarNavigation";
+import { SidebarNavigation } from "./sidebar-navigation";
 
 export default {
   title: "UI/SidebarNavigation",

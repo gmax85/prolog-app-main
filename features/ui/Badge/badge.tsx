@@ -23,19 +23,17 @@ type BadgeProps = {
 };
 
 const Container = styled.div<{ size: BadgeSize; color: BadgeColor }>`
-  width: fit-cotent;
+  width: fit-content;
   display: flex;
   align-items: center;
-  background: #f9f5ff;
   border-radius: ${space(4)};
-
   ${(props) => {
     switch (props.size) {
       case BadgeSize.sm:
         return css`
           padding: ${space(0, 2)};
           height: 1.375rem;
-          ${textFont("xs", "medium")};
+          ${textFont("xs", "medium")}
         `;
       case BadgeSize.md:
         return css`
@@ -45,7 +43,7 @@ const Container = styled.div<{ size: BadgeSize; color: BadgeColor }>`
         `;
       case BadgeSize.lg:
         return css`
-          padding: 0 ${space(0, 3)};
+          padding: ${space(0, 3)};
           height: 1.75rem;
           ${textFont("sm", "medium")}
         `;

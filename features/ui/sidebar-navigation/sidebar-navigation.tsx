@@ -1,13 +1,13 @@
 import styled, { css } from "styled-components";
 
 import { Routes } from "@config/routes";
-import { MenuItemLink } from "./MenuItemLink";
-import { MenuItemButton } from "./MenuItemBottom";
+import { MenuItemLink } from "./menu-item-link";
+import { MenuItemButton } from "./menu-item-button";
 import { useRouter } from "next/router";
 
 import { useContext, useState } from "react";
-import { NavigationContext } from "@features/ui/SidebarNavigation/NavigationContext";
-import { Button } from "@features/ui/Button";
+import { NavigationContext } from "@features/ui/sidebar-navigation/navigation-context";
+import { Button } from "../button";
 import { breakpoint, color, space, zIndex } from "@styles/theme";
 
 const menuItems = [
