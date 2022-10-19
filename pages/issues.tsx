@@ -1,6 +1,6 @@
+import { PageContainer } from "@features/ui";
+import { IssueList } from "@features/issues";
 import type { NextPage } from "next";
-import { PageContainer } from "@features/ui/page-container/page-container";
-import { IssueList } from "@features/issues/components/IssuesList/Issue-List";
 
 const IssuesPage: NextPage = () => {
   return (
